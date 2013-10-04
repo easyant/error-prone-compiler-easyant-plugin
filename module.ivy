@@ -31,8 +31,6 @@
         <artifact type="ant" />
     </publications>
     <dependencies>
-        <dependency org="com.google.errorprone" name="error_prone_core" rev="1.0.3" conf="default->default"/>
-    
         <dependency org="com.google.errorprone" name="error_prone_ant" rev="1.0.3" conf="default->default">
             <exclude org="org.apache.ant"/>
         </dependency>
