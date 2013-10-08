@@ -19,8 +19,11 @@
 
 	<property name="compile.java.compiler" value="com.google.errorprone.ErrorProneAntCompilerAdapter"/>
     <ea:plugin module="compile-java" revision="0.10" />
-    <ea:path pathid="java.compiler.classpath" overwrite="prepend">
-        <path refid="org.apache.easyant.plugins#error-prone-compiler.classpath"/>
-    </ea:path>
+	
+	<target name="error-prone-compiler-init" extensionOf="abstract-compile:compile-ready">
+	    <ea:path pathid="java.compiler.classpath" overwrite="prepend">
+	        <path refid="org.apache.easyant.plugins#error-prone-compiler.classpath"/>
+	    </ea:path>
+	</target>
 	
 </project>

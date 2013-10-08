@@ -34,8 +34,17 @@
 
     <target name="setUp" depends="clean" />
     <target name="tearDown" depends="clean" />
+	
+	<target name="test-error-prone-compiler">
+        <au:assertPropertyEquals name="compile.java.compiler" value="com.google.errorprone.ErrorProneAntCompilerAdapter" />
 
-    <target name="test-compile-java:compile" depends="compile-java:compile">
+	</target>
+	
+	<target name="test-error-prone-compiler-init" depends="error-prone-compiler-init">
+		<au:assertReferenceSet refid="java.compiler.classpath"/>
+	</target>
+
+    <target name="test-error-prone-compiler:compile" depends="compile-java:compile">
         <au:assertFileExists file="${target.main.classes}" />
         <au:assertFileExists file="${target.main.classes}/org/apache/easyant/example/Example.class" />
         <au:assertFileExists file="${target.main.classes}/org/apache/easyant/example/Example2.class" />
